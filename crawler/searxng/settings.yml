@@ -1,0 +1,27 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "Local SearXNG"
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  formats:
+    - html
+    - json
+
+server:
+  secret_key: "acea28ec54ebaff07885a936f6825082fe2c4ab255d23e0556848973e0f6c675"
+  limiter: false
+  image_proxy: true
+
+valkey:
+  url: valkey://valkey:6379/0
+
+ui:
+  static_use_hash: true
+
+outgoing:
+  request_timeout: 10.0
+  max_request_timeout: 15.0

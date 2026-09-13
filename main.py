@@ -7,7 +7,6 @@ load_dotenv()
 
 
 ollama_url = os.getenv("OLLAMA_HOST")
-llm = ChatOllama(model="qwen3-coder:30b",base_url=ollama_url)
 def main():
     information = """
         Elon Reeve Musk FRS (/ˈiːlɒn/ EE-lon; born June 28, 1971) is a businessman, known for his leadership of Tesla, SpaceX, X (formerly Twitter), and the Department of Government Efficiency (DOGE). Musk has been the wealthiest person in the world since 2021; as of May 2025, Forbes estimates his net worth to be US$424.7 billion.
@@ -28,7 +27,7 @@ def main():
         """
     summary_prompt_template = PromptTemplate(input_variables=["information"], template=summary_template)
 
-    llm = ChatOllama(model="qwen3-coder:30b",base_url=ollama_url)
+    llm = ChatOllama(model="qwen3.8:latest",base_url=ollama_url)
     chain = summary_prompt_template | llm
     response = chain.invoke(input={"information": information})
     print(response)
